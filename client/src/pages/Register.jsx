@@ -12,7 +12,7 @@ const Register = () => {
 
   const [err, setErr] = useState(null)
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setInputs(prev => ({...prev, [e.target.name]: e.target.value}));
@@ -23,7 +23,7 @@ const Register = () => {
     try{
       const res = await axios.post("/auth/register", inputs)
       console.log(res);
-      //navigate("/login");
+      navigate("/login");
     } catch(err) {
         setErr(err.response.data);
     }
