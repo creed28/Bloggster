@@ -126,6 +126,10 @@ $darkerPurple: #554dc5;
                                     width: 100%;
                                     box-sizing: border-box;
                                 }
+
+                                input[type='password']{
+                                    font-size: 0.8rem;
+                                }
                         
                                 input[type='checkbox']{
                                     width: 1.25rem;
