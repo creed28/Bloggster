@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Auth_Photo from '../assets/img/auth-photo.png';
-import axios from 'axios'
+import Logo from '../assets/img/logo.png';
 import { AuthContext } from '../context/authContext';
 
 const Login = () => {
@@ -36,7 +36,10 @@ const Login = () => {
       <div className="wrapper">
         <div className="left">
           <div className="header">
-            <h1>Bloggster<span>.</span></h1>
+            <div className="logo">
+              <img src={Logo} alt="" />
+              <h1>loggster<span>.</span></h1>
+            </div>
             <p>Welcome Back</p>
           </div>
           <form>

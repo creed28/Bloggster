@@ -70,14 +70,23 @@ $darkerPurple: #554dc5;
                         margin: 1rem 9%;
                         border-bottom: 1px solid #a5a4a4;
 
-                        span{
-                            color: $lightPurple;
-                        }
-        
-                        h1 {
-                            font-size: 2.5rem;
-                            color: #2e2d2e;
-                            margin-bottom: 0.5rem; 
+                        .logo{
+                            justify-content: center;
+                            display: flex;
+
+                            img{
+                                width: 60px;
+                            }
+
+                            span{
+                                color: $lightPurple;
+                            }
+            
+                            h1 {
+                                font-size: 2.5rem;
+                                color: #2e2d2e;
+                                margin-bottom: 0.5rem; 
+                            }
                         }
             
                         p{
@@ -219,7 +228,12 @@ $darkerPurple: #554dc5;
                 justify-content: space-between;
 
                 .logo{
+                    display: flex;
                     width: 70%;
+
+                    img{
+                        width: 40px;
+                    }
 
                     span{
                         color: $lightPurple;
@@ -265,6 +279,7 @@ $darkerPurple: #554dc5;
                         
                         &:hover, &:focus{
                             color: $darkerPurple;
+                            cursor: pointer;
                         }
     
                         &:active{
@@ -529,8 +544,17 @@ $darkerPurple: #554dc5;
                         color: #555;
                         border-radius: 1rem;
 
-                        h2{
-                            font-size: 20px;
+                        .logo{
+                            display: flex;
+                            gap: 10px;
+
+                            img{
+                                width: 30px;
+                            }
+
+                            h2{
+                                font-size: 20px;
+                            }
                         }
 
                         .file-image{

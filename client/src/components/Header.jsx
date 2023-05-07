@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiLogOut, FiLogIn } from 'react-icons/fi';
 import { FaUser } from 'react-icons/fa';
 import { TfiWrite } from 'react-icons/tfi'
+import Logo from '../assets/img/logo.png';
 import { AuthContext } from '../context/authContext';
 
 const Header = () => {
@@ -14,19 +15,20 @@ const Header = () => {
       <div className="container">
         <Link to='/' className='link'>
           <div className="logo">
-            <h1>Bloggster<span>.</span></h1>
+            <img src={Logo} alt="" />
+            <h1>loggster<span>.</span></h1>
           </div>
         </Link>
         <nav className="nav">
           <Nav />
         </nav>
         <div className="icons">
-          <span className='write-post' title='Write Post'>
+        {currentUser && <span className='write-post' title='Write Post'>
             <Link className='link-icon' to='/write'><TfiWrite /></Link>
-          </span>
-          <span title={currentUser?.username}>
+          </span>}
+          {currentUser && <span title={currentUser.username}>
             <Link className='link-icon'><FaUser /></Link>
-          </span>
+          </span>}
           <span>
           {currentUser ? (
             <span className='link-icon' onClick={logout} title='Logout'><FiLogOut /></span>

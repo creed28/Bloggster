@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+import Logo from '../assets/img/logo.png'
 
 const WritePost = () => {
   const [value, setValue] = useState('');
@@ -18,7 +19,11 @@ const WritePost = () => {
         </div>
         <div className="menu">
           <div className="item">
-            <h2>Publish</h2>
+            <div className="logo">
+              <img src={Logo} alt="" />
+              <h2>Publish</h2>
+            </div>
+            
             <span>
               <b>Status: </b> Draft
             </span>
