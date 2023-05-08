@@ -515,9 +515,9 @@ $darkerPurple: #554dc5;
                         box-sizing: border-box;
                     }
 
-                    .edit-content{
+                    .edit-post{
                         height: 400px;
-                        overflow: scroll;
+                        overflow: hidden;
                         border: 1px solid #d3d3d3;
 
                         .editor{

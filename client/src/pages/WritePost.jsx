@@ -13,7 +13,7 @@ const WritePost = () => {
         <div className="content">
           <label htmlFor="title">Title</label>
           <input type="text" id='title'/>
-          <div className="edit-content">
+          <div className="edit-post">
             <ReactQuill className='editor' theme='snow' value={value} onChange={setValue} />
           </div>
         </div>
