@@ -5,7 +5,7 @@ import {
   getPost,
   getPosts,
   updatePost,
-} from "../controllers/post.js";
+} from "../controllers/postController.js";
 
 const router = express.Router();
 
