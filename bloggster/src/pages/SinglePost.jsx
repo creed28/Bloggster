@@ -7,7 +7,7 @@ import { useContext } from "react";
 import Edit from '../assets/img/edit.png'
 import Delete from '../assets/img/delete.png'
 import { AuthContext } from '../context/authContext';
-
+import DOMPurify from "dompurify";
 
 const SinglePost = () => {
   const [post, setPost] = useState({});
@@ -41,31 +41,33 @@ const SinglePost = () => {
   }
 
   return (
-    <main className='single-post'>
+    <article className='single-post'>
       <div className="container">
       <div className="content">
-        <img src={post.postIMG} alt="" />
+        <img src={`../uploads/${post?.postIMG}`} alt="" />
         <div className="user">
           {post.userIMG && <img src={post.userIMG} alt="" />}
           <div className="info">
             <span>Author: {post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username === post.username && <div className="edit">
-            <Link to={`/write?edit=2`}>
+          {currentUser?.username === post.username && <div className="edit">
+            <Link to={`/write?edit=2`} state={post}>
               <img title='Edit Post' src={Edit} alt="" />
             </Link>
             <img onClick={handleDelete} title='Delete Post' src={Delete} alt="" />
           </div>}
         </div>
-        <h1>
-          {post.title}
-        </h1>
-        {post.desc}
+        <h1>{post.title}</h1>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(post.desc),
+          }}
+        ></p>
       </div>
-      <Menu />
+      <Menu category={post.category} />
       </div>
-    </main>
+    </article>
   )
 }
 
