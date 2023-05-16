@@ -32,6 +32,10 @@ export const register = (req, res) => {
       return res.status(400).json("Empty password field!");
     }
 
+    if (req.body.password.length > 16) {
+      return res.status(400).json("Password field can't be more than 16 characters!");
+    }
+
     const q = "INSERT INTO users(`username`,`email`,`password`) VALUES (?)";
     const values = [req.body.username, req.body.email, hash];
 
