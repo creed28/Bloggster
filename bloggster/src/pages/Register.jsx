@@ -23,8 +23,7 @@ const Register = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault();
     try{
-      const res = await axios.post("/auth/register", inputs)
-      console.log(res);
+      await axios.post("/auth/register", inputs)
       navigate("/login");
     } catch(err) {
         setErr(err.response.data);
@@ -72,11 +71,11 @@ const Register = () => {
                   onChange={handleChange} />
               </div>
               <button onClick={handleSubmit}>Sign up</button>
-              {err && <p>{err}</p>}
               <span>
                 Already a bloggster? 
                 <Link className='auth-link' to="/login"> Log in</Link>
               </span>
+              <p>{err}</p>
             </div>
           </form>
         </div>

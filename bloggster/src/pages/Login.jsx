@@ -11,11 +11,8 @@ const Login = () => {
   })
 
   const [err, setErr] = useState(null)
-
   const navigate = useNavigate();
-
   const { login } = useContext(AuthContext);
-
 
   const handleChange = e => {
     setInputs(prev => ({...prev, [e.target.name]: e.target.value}));
@@ -23,6 +20,7 @@ const Login = () => {
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
+
     try{
       await login(inputs);
       navigate("/");
@@ -68,11 +66,11 @@ const Login = () => {
                 </div>
               </div>
               <button onClick={handleSubmit}>Log in</button>
-              {err && <p>{err}</p>}
               <span>
                 New to Bloggster?
                 <Link className='auth-link' to="/register"> Sign up</Link>
               </span>
+              <p>{err}</p>
             </div>
           </form>
         </div>
