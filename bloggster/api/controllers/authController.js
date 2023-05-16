@@ -28,12 +28,20 @@ export const register = (req, res) => {
       return res.status(400).json("Empty username field!");
     }
     
+    if (req.body.username.length < 4) {
+      return res.status(400).json("Username can't be less than 4 characters!");
+    }
+    
     if (req.body.password === '') {
       return res.status(400).json("Empty password field!");
     }
 
     if (req.body.password.length > 16) {
-      return res.status(400).json("Password field can't be more than 16 characters!");
+      return res.status(400).json("Password can't be more than 16 characters!");
+    }
+
+    if(req.body.password.length < 6){
+      return res.status(400).json("Password can't be less than 6 characters!");
     }
 
     const q = "INSERT INTO users(`username`,`email`,`password`) VALUES (?)";
