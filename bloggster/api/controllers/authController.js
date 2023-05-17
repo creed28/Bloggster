@@ -15,7 +15,7 @@ export const register = (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
-    // Check if data is empty string
+    // Validate input
     if (req.body.username === '' && req.body.email === '' && req.body.password === '') {
       return res.status(400).json("Empty fields!");
     }
@@ -62,7 +62,7 @@ export const login = (req, res) => {
   db.query(q, [req.body.username], (err, data) => {
     if(err) return res.json(err);
 
-    // Check if data is empty string
+    // Validate input
     if(req.body.username === '' && req.body.password === ''){
       return res.status(400).json("Empty fields!");
     }
